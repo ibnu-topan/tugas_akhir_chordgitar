@@ -20,39 +20,84 @@
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="20dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_rounded_line">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_rounded_line">
 
-        <EditText
-            android:id="@+id/inputJudul"
+
+                <EditText
+                    android:id="@+id/inputJudul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:hint="Masukan judul lagu yang spesifik"
+                    android:imeOptions="actionDone"
+                    android:paddingStart="10dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imageClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/ic_delete" />
+
+
+              </FrameLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:hint="Masukan judul lagu yang spesifik"
-            android:imeOptions="actionDone"
-            android:paddingStart="10dp"
-            android:singleLine="true"
-            android:textSize="16sp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="16dp"
+            android:text="Cari Chord Gitar"
+            android:textColor="@android:color/white"
+            app:layout_anchor="@+id/linearLayout"
+            app:layout_anchorGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageClear"
+        <LinearLayout
+            android:id="@+id/linearHasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvKunciGitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/ic_delete" />
+            android:lineSpacingExtra="10sp"
+            android:padding="15dp"
+            android:text="@string/app_name"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
-    </FrameLayout>
-    </LinearLayout>
+
+        </LinearLayout>
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     
 
