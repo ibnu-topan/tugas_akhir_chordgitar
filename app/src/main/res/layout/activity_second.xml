@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".SecondActivity">
 
     <include
@@ -14,6 +14,7 @@
         layout="@layout/toolbar" />
 
     //Ini Adalah Form Pencarian
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +44,8 @@
                     android:imeOptions="actionDone"
                     android:paddingStart="10dp"
                     android:singleLine="true"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:id="@+id/imageClear"
@@ -54,7 +56,7 @@
                     android:background="@drawable/ic_delete" />
 
 
-              </FrameLayout>
+            </FrameLayout>
 
 
         </LinearLayout>
@@ -84,22 +86,47 @@
             android:focusableInTouchMode="true"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvChordGitar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="10sp"
-            android:padding="15dp"
-            android:text="@string/app_name"
-            android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tvChordGitar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="10sp"
+                android:padding="15dp"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
 
 
         </LinearLayout>
 
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@+id/linearLayout"
+            app:layout_anchorGravity="bottom|center"
+            app:tabBackground="@color/colorPrimaryDark"
+            app:tabGravity="fill"
+            app:tabInlineLabel="true"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@style/CustomTabStyles"
+            app:tabTextColor="@android:color/white" />
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar" />
 
 
 </RelativeLayout>

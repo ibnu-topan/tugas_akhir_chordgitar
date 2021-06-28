@@ -98,7 +98,7 @@ class SecondActivity : AppCompatActivity() {
                     try {
                         val responseObject = JSONObject(response.body())
                         strResult = responseObject.getString("result")
-                        //get color kunci gitar
+                        //get color chord gitar
                         strChordGitar = highlighter?.getHighlightedText(strResult).toString()
                         tvChordGitar.text = strChordGitar
 
