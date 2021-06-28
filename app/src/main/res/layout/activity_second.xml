@@ -89,27 +89,23 @@
             <TextView
                 android:id="@+id/tvChordGitar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="10sp"
-                android:padding="15dp"
-                android:text="@string/app_name"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_anchor="@+id/linearLayout"
             app:layout_anchorGravity="bottom|center"
-            app:tabBackground="@color/colorPrimaryDark"
+            app:tabBackground="@color/design_default_color_background"
             app:tabGravity="fill"
             app:tabInlineLabel="true"
             app:tabMode="fixed"
             app:tabTextAppearance="@style/CustomTabStyles"
-            app:tabTextColor="@android:color/white" />
+            app:tabTextColor="@android:color/black" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

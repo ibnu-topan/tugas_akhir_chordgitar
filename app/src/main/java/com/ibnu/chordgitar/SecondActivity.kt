@@ -16,6 +16,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import com.ibnu.chordgitar.ApiClient.getApiClient
 import com.ibnu.chordgitar.ApiInterface
 import com.ibnu.chordgitar.R
+import com.ibnu.chordgitar.fragment.FavouritesFragment
+import com.ibnu.chordgitar.fragment.HomeFragment
+import com.ibnu.chordgitar.fragment.SettingsFragment
+import com.ibnu.chordgitar.fragment.adapters.ViewPagerAdapter
 
 
 class SecondActivity : AppCompatActivity() {
@@ -29,6 +33,22 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+        /**Ini Adalah Fragment Tab By Ibnu Topan*/
+        setUpTabs()
+    }
+
+    private fun setUpTabs() {
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(HomeFragment(), "Home")
+        adapter.addFragment(FavouritesFragment(), "Favourites")
+        adapter.addFragment(SettingsFragment(), "Settings")
+        viewPager.adapter = adapter
+        tabs.setupWithViewPager(viewPager)
+
+        tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_home_24)
+        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_favorite_24)
+        tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_settings_24)
 
         highlighter = TextHighlighter()
 
@@ -78,7 +98,8 @@ class SecondActivity : AppCompatActivity() {
         button2.setOnClickListener {
             strInputTeks = inputJudul.getText().toString()
             if (strInputTeks.isEmpty()) {
-                Toast.makeText(this@SecondActivity, "Judul lagu harus diisi!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SecondActivity, "Judul lagu harus diisi!", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 getData(strInputTeks)
             }
@@ -106,15 +127,21 @@ class SecondActivity : AppCompatActivity() {
                         imageClear.visibility = View.VISIBLE
                     } catch (e: JSONException) {
                         e.printStackTrace()
-                        Toast.makeText(this@SecondActivity,
-                            "Oops, Chord Gitar Tidak Ditemukan.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@SecondActivity,
+                            "Oops, Chord Gitar Tidak Ditemukan.", Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
                 progressDialog?.dismiss()
-                Toast.makeText(this@SecondActivity, "Oops, jaringan kamu bermasalah.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@SecondActivity,
+                    "Oops, jaringan kamu bermasalah.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
 

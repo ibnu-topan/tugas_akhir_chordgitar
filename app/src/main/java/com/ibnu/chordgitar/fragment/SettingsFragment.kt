@@ -11,7 +11,7 @@ import com.ibnu.chordgitar.R
  * create By Ibnu
  */
 
-class HomeFragment : Fragment() {
+class SettingsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -26,8 +26,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 
 
-    }
+}
