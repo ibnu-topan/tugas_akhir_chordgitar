@@ -23,7 +23,7 @@ class SecondActivity : AppCompatActivity() {
     var highlighter: TextHighlighter? = null
     var strInputTeks: String = ""
     var strResult: String = ""
-    var strKunciGitar: String = ""
+    var strChordGitar: String = ""
     var progressDialog: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +69,7 @@ class SecondActivity : AppCompatActivity() {
         //clear data
         imageClear.setOnClickListener {
             inputJudul.getText().clear()
-            tvKunciGitar.setText("")
+            tvChordGitar.setText("")
             linearHasil.setVisibility(View.GONE)
             imageClear.setVisibility(View.GONE)
         }
@@ -98,18 +98,16 @@ class SecondActivity : AppCompatActivity() {
                     try {
                         val responseObject = JSONObject(response.body())
                         strResult = responseObject.getString("result")
-
                         //get color kunci gitar
-                        //strKunciGitar = highlighter?.getHighlightedText(strResult)
-
-                        tvKunciGitar.text = strKunciGitar
+                        strChordGitar = highlighter?.getHighlightedText(strResult).toString()
+                        tvChordGitar.text = strChordGitar
 
                         linearHasil.visibility = View.VISIBLE
                         imageClear.visibility = View.VISIBLE
                     } catch (e: JSONException) {
                         e.printStackTrace()
                         Toast.makeText(this@SecondActivity,
-                            "Oops, kunci gitar tidak ditemukan.", Toast.LENGTH_SHORT).show()
+                            "Oops, Chord Gitar Tidak Ditemukan.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
